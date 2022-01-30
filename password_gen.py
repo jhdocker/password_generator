@@ -17,6 +17,7 @@ def arg_check(pw_type):
 def random_char(length, type):
 	x = 0
 	password = []
+	
 	while x < (length * 3):
 		password.append(random.choice(string.ascii_letters))
 		password.append(str(random.randint(0,9)))
@@ -25,7 +26,6 @@ def random_char(length, type):
 		x += 1
 
 	return password
-
 
 def random_pass(length, type):
 	long_pass = random_char(length, type)
@@ -41,15 +41,8 @@ parser.add_argument('-length', type=int, required=True, help="this is the help d
 parser.add_argument('-type', type=str, required=False, default='',help="""use the following arguments 
 	to build different character passwords: alpha-numeric, multi-char""")
 args = parser.parse_args()
-# available_types = ['alpha-numeric', 'multi-char', '']
-# if args.type in available_types:
-# 	print(f'{args.type} is in there NEWWWW yep its good')
-# else:
-# 	print('nope, not in ther jackson')
-	
+
 if arg_check(args.type):
 	print(random_pass(args.length, args.type))
 else:
 	print('closing script')
-
-
